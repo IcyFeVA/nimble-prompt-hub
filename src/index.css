@@ -2,41 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Prompt Vault Design System - Professional productivity app aesthetic */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core colors - Clean, professional palette */
+    --background: 250 100% 99%;
+    --foreground: 224 12% 15%;
 
+    /* Cards with glassmorphism effect */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 224 12% 15%;
+    --glass: 250 100% 99% / 0.7;
+    --glass-border: 224 12% 85% / 0.3;
 
+    /* Primary - Indigo for professional feel */
+    --primary: 238 75% 65%;
+    --primary-hover: 238 75% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Subtle gray */
+    --secondary: 224 12% 96%;
+    --secondary-hover: 224 12% 92%;
+    --secondary-foreground: 224 12% 25%;
+
+    /* Muted elements */
+    --muted: 224 12% 96%;
+    --muted-foreground: 224 12% 45%;
+
+    /* Success for copy feedback */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Destructive for delete actions */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Interactive elements */
+    --border: 224 12% 85%;
+    --input: 224 12% 95%;
+    --ring: 238 75% 65%;
+
+    /* Surfaces */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 224 12% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Radius system */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Shadows for depth */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-glass: 0 4px 16px rgb(99 102 241 / 0.1);
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(238 75% 70%));
+    --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    /* Transitions */
+    --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: 350ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -56,41 +85,53 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Dark mode - elegant and professional */
+    --background: 224 12% 8%;
+    --foreground: 224 12% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    /* Dark glass effect */
+    --card: 224 12% 12%;
+    --card-foreground: 224 12% 92%;
+    --glass: 224 12% 12% / 0.7;
+    --glass-border: 224 12% 20% / 0.3;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    /* Primary remains indigo but adjusted for dark */
+    --primary: 238 75% 65%;
+    --primary-hover: 238 75% 70%;
+    --primary-foreground: 0 0% 100%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    /* Dark secondary */
+    --secondary: 224 12% 16%;
+    --secondary-hover: 224 12% 20%;
+    --secondary-foreground: 224 12% 85%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Dark muted */
+    --muted: 224 12% 16%;
+    --muted-foreground: 224 12% 65%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    /* Success and destructive remain similar */
+    --success: 142 71% 50%;
+    --success-foreground: 0 0% 100%;
+    --destructive: 0 84% 65%;
+    --destructive-foreground: 0 0% 100%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    /* Dark interactive elements */
+    --border: 224 12% 20%;
+    --input: 224 12% 16%;
+    --ring: 238 75% 65%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    /* Dark surfaces */
+    --popover: 224 12% 12%;
+    --popover-foreground: 224 12% 92%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Dark shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --shadow-glass: 0 4px 16px rgb(99 102 241 / 0.2);
+
+    /* Dark gradients */
+    --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
   }
 }
 
@@ -100,6 +141,133 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-system;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+}
+
+@layer components {
+  /* Glass card component */
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/60 rounded-[var(--radius)] shadow-[var(--shadow-glass)];
+  }
+
+  /* Hover states for interactivity */
+  .hover-lift {
+    @apply transition-transform duration-[var(--transition-smooth)] hover:scale-[1.02] hover:shadow-[var(--shadow-lg)];
+  }
+
+  /* Copy button styles */
+  .copy-button {
+    @apply opacity-0 group-hover:opacity-100 transition-opacity duration-[var(--transition-fast)] 
+           bg-primary text-primary-foreground rounded-[var(--radius-sm)] p-2 hover:bg-[hsl(var(--primary-hover))]
+           absolute top-4 right-4 shadow-[var(--shadow)];
+  }
+
+  /* Search input styling */
+  .search-input {
+    @apply w-full px-4 py-3 bg-input border border-border rounded-[var(--radius)] 
+           placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring
+           transition-colors duration-[var(--transition-fast)];
+  }
+
+  /* Category item styling */
+  .category-item {
+    @apply flex items-center justify-between px-3 py-2 rounded-[var(--radius-sm)] 
+           text-secondary-foreground hover:bg-secondary-hover cursor-pointer
+           transition-colors duration-[var(--transition-fast)];
+  }
+
+  .category-item.active {
+    @apply bg-primary text-primary-foreground hover:bg-[hsl(var(--primary-hover))];
+  }
+
+  /* Prompt card styling */
+  .prompt-card {
+    @apply group glass-card p-6 hover-lift cursor-pointer relative;
+  }
+
+  /* Quick add modal */
+  .modal-overlay {
+    @apply fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4;
+  }
+
+  .modal-content {
+    @apply glass-card w-full max-w-lg p-6 max-h-[90vh] overflow-y-auto;
+  }
+
+  /* Toast notification */
+  .toast {
+    @apply fixed top-4 right-4 glass-card px-4 py-3 z-50 
+           transition-transform duration-[var(--transition-bounce)] transform;
+  }
+
+  .toast.success {
+    @apply bg-success text-success-foreground;
+  }
+
+  /* Drag handle */
+  .drag-handle {
+    @apply opacity-0 group-hover:opacity-60 hover:opacity-100 cursor-grab active:cursor-grabbing
+           transition-opacity duration-[var(--transition-fast)] text-muted-foreground;
+  }
+
+  /* Empty state */
+  .empty-state {
+    @apply text-center p-12 text-muted-foreground;
+  }
+
+  /* Text utilities */
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Dark mode detection */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+    }
+  }
+
+  /* Responsive utilities */
+  @media (max-width: 768px) {
+    .mobile-hide {
+      @apply hidden;
+    }
+    
+    .prompt-card {
+      @apply text-sm;
+    }
+    
+    .search-input {
+      @apply text-base; /* Prevent zoom on iOS */
+    }
+  }
+
+  /* Focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground));
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--foreground));
   }
 }
