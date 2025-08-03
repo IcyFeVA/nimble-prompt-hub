@@ -154,13 +154,13 @@
 
   /* Hover states for interactivity */
   .hover-lift {
-    @apply transition-transform duration-[var(--transition-smooth)] hover:scale-[1.02] hover:shadow-[var(--shadow-lg)];
+    @apply transition-transform duration-smooth hover:scale-[1.02] hover:shadow-[var(--shadow-lg)];
   }
 
   /* Copy button styles */
   .copy-button {
-    @apply opacity-0 group-hover:opacity-100 transition-opacity duration-[var(--transition-fast)] 
-           bg-primary text-primary-foreground rounded-[var(--radius-sm)] p-2 hover:bg-[hsl(var(--primary-hover))]
+    @apply opacity-0 group-hover:opacity-100 transition-opacity duration-fast 
+           bg-primary text-primary-foreground rounded-[var(--radius-sm)] p-2 hover:bg-primary-hover
            absolute top-4 right-4 shadow-[var(--shadow)];
   }
 
@@ -168,18 +168,18 @@
   .search-input {
     @apply w-full px-4 py-3 bg-input border border-border rounded-[var(--radius)] 
            placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring
-           transition-colors duration-[var(--transition-fast)];
+           transition-colors duration-fast;
   }
 
   /* Category item styling */
   .category-item {
     @apply flex items-center justify-between px-3 py-2 rounded-[var(--radius-sm)] 
            text-secondary-foreground hover:bg-secondary-hover cursor-pointer
-           transition-colors duration-[var(--transition-fast)];
+           transition-colors duration-fast;
   }
 
   .category-item.active {
-    @apply bg-primary text-primary-foreground hover:bg-[hsl(var(--primary-hover))];
+    @apply bg-primary text-primary-foreground hover:bg-primary-hover;
   }
 
   /* Prompt card styling */
@@ -199,7 +199,7 @@
   /* Toast notification */
   .toast {
     @apply fixed top-4 right-4 glass-card px-4 py-3 z-50 
-           transition-transform duration-[var(--transition-bounce)] transform;
+           transition-transform duration-bounce transform;
   }
 
   .toast.success {
@@ -209,7 +209,7 @@
   /* Drag handle */
   .drag-handle {
     @apply opacity-0 group-hover:opacity-60 hover:opacity-100 cursor-grab active:cursor-grabbing
-           transition-opacity duration-[var(--transition-fast)] text-muted-foreground;
+           transition-opacity duration-fast text-muted-foreground;
   }
 
   /* Empty state */

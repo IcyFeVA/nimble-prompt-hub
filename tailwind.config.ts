@@ -100,6 +100,11 @@ export default {
 			},
 			fontFamily: {
 				'system': ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif']
+			},
+			transitionDuration: {
+				'fast': '150ms',
+				'smooth': '250ms', 
+				'bounce': '350ms'
 			}
 		}
 	},
