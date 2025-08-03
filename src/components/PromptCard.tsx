@@ -43,7 +43,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
 
   return (
     <div
-      className={`prompt-card ${isDragging ? 'opacity-50 scale-95' : ''}`}
+      className={`group prompt-card ${isDragging ? 'opacity-50 scale-95' : ''}`}
       draggable
       onDragStart={handleDragStart}
       onDragEnd={onDragEnd}
@@ -67,7 +67,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
       {/* Delete Button */}
       <button
         onClick={() => onDelete(prompt.id)}
-        className="opacity-0 group-hover:opacity-100 transition-opacity duration-[var(--transition-fast)] 
+        className="opacity-0 group-hover:opacity-100 transition-opacity duration-fast 
                    bg-destructive text-destructive-foreground rounded-[var(--radius-sm)] p-2 hover:bg-destructive/90
                    absolute top-4 right-16 shadow-[var(--shadow)]"
         title="Delete prompt"

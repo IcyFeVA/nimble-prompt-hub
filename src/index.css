@@ -184,7 +184,7 @@
 
   /* Prompt card styling */
   .prompt-card {
-    @apply group glass-card p-6 hover-lift cursor-pointer relative;
+    @apply glass-card p-6 hover-lift cursor-pointer relative;
   }
 
   /* Quick add modal */

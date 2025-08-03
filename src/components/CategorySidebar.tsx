@@ -16,7 +16,7 @@ export const CategorySidebar: React.FC<CategorySidebarProps> = ({
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <aside className={`border-r border-border bg-background transition-all duration-[var(--transition-smooth)] ${
+    <aside className={`border-r border-border bg-background transition-all duration-smooth ${
       isCollapsed ? 'w-12' : 'w-64'
     } mobile-hide`}>
       
