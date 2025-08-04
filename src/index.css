@@ -198,7 +198,7 @@
 
   /* Toast notification */
   .toast {
-    @apply fixed top-4 right-4 glass-card px-4 py-3 z-50 
+    @apply fixed top-4 left-1/2 -translate-x-1/2 glass-card px-4 py-3 z-50 
            transition-transform duration-bounce transform;
   }
 
