@@ -1,6 +1,17 @@
 import React from 'react';
 import { Copy, Trash2, GripVertical } from 'lucide-react';
 import { Prompt } from './PromptVault';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
 
 interface PromptCardProps {
   prompt: Prompt;
@@ -65,15 +76,33 @@ export const PromptCard: React.FC<PromptCardProps> = ({
       </button>
 
       {/* Delete Button */}
-      <button
-        onClick={() => onDelete(prompt.id)}
-        className="opacity-0 group-hover:opacity-100 transition-opacity duration-fast 
+      <AlertDialog>
+        <AlertDialogTrigger asChild>
+          <button
+            className="opacity-0 group-hover:opacity-100 transition-opacity duration-fast 
                    bg-destructive text-destructive-foreground rounded-[var(--radius-sm)] p-2 hover:bg-destructive/90
                    absolute top-4 right-16 shadow-[var(--shadow)]"
-        title="Delete prompt"
-      >
-        <Trash2 className="w-4 h-4" />
-      </button>
+            title="Delete prompt"
+          >
+            <Trash2 className="w-4 h-4" />
+          </button>
+        </AlertDialogTrigger>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete the prompt.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={() => onDelete(prompt.id)}>
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
 
       {/* Content */}
       <div className="pl-6">
