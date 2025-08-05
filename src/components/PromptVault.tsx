@@ -47,6 +47,7 @@ export const PromptVault: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [isQuickAddOpen, setIsQuickAddOpen] = useState(false);
+  const [editingPrompt, setEditingPrompt] = useState<Prompt | null>(null);
   const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
   const [isFirstTime, setIsFirstTime] = useState(false);
 
@@ -130,6 +131,16 @@ export const PromptVault: React.FC = () => {
     };
     setPrompts(prev => [newPrompt, ...prev]);
     showToast('Prompt added successfully!', 'success');
+  };
+
+  const handleUpdatePrompt = (updatedPrompt: Prompt) => {
+    setPrompts(prev => prev.map(p => p.id === updatedPrompt.id ? updatedPrompt : p));
+    showToast('Prompt updated successfully!', 'success');
+  };
+
+  const handleEditPrompt = (prompt: Prompt) => {
+    setEditingPrompt(prompt);
+    setIsQuickAddOpen(true);
   };
 
   const handleDeletePrompt = (id: string) => {
@@ -257,6 +268,7 @@ export const PromptVault: React.FC = () => {
                   prompt={prompt}
                   onCopy={handleCopyPrompt}
                   onDelete={handleDeletePrompt}
+                  onEdit={handleEditPrompt} // Add this line
                   onDragStart={handleDragStart}
                   onDragEnd={handleDragEnd}
                   onDragOver={handleDragOver}
@@ -281,7 +293,12 @@ export const PromptVault: React.FC = () => {
         <QuickAddModal
           categories={categories.slice(1).map(c => c.name)} // Exclude "All"
           onAdd={handleAddPrompt}
-          onClose={() => setIsQuickAddOpen(false)}
+          onEdit={handleUpdatePrompt}
+          onClose={() => {
+            setIsQuickAddOpen(false);
+            setEditingPrompt(null);
+          }}
+          promptToEdit={editingPrompt}
         />
       )}
 

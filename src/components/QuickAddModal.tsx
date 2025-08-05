@@ -5,19 +5,31 @@ import { Prompt } from './PromptVault';
 interface QuickAddModalProps {
   categories: string[];
   onAdd: (prompt: Omit<Prompt, 'id' | 'createdAt' | 'usageCount'>) => void;
+  onEdit: (prompt: Prompt) => void;
   onClose: () => void;
+  promptToEdit?: Prompt | null;
 }
 
 export const QuickAddModal: React.FC<QuickAddModalProps> = ({
   categories,
   onAdd,
-  onClose
+  onEdit,
+  onClose,
+  promptToEdit
 }) => {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
   const [newCategory, setNewCategory] = useState('');
   const [isCreatingCategory, setIsCreatingCategory] = useState(false);
+
+  useEffect(() => {
+    if (promptToEdit) {
+      setTitle(promptToEdit.title);
+      setContent(promptToEdit.content);
+      setCategory(promptToEdit.category);
+    }
+  }, [promptToEdit]);
 
   // Focus title input on mount
   useEffect(() => {
@@ -48,11 +60,20 @@ export const QuickAddModal: React.FC<QuickAddModalProps> = ({
       ? newCategory.trim() 
       : category || 'Uncategorized';
 
-    onAdd({
-      title: title.trim(),
-      content: content.trim(),
-      category: finalCategory
-    });
+    if (promptToEdit) {
+      onEdit({ 
+        ...promptToEdit, 
+        title: title.trim(),
+        content: content.trim(),
+        category: finalCategory
+      });
+    } else {
+      onAdd({
+        title: title.trim(),
+        content: content.trim(),
+        category: finalCategory
+      });
+    }
 
     onClose();
   };
@@ -72,7 +93,7 @@ export const QuickAddModal: React.FC<QuickAddModalProps> = ({
       <div className="modal-content animate-bounce-in" onClick={(e) => e.stopPropagation()}>
         {/* Header */}
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-semibold">Add New Prompt</h2>
+          <h2 className="text-xl font-semibold">{promptToEdit ? 'Edit Prompt' : 'Add New Prompt'}</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-secondary rounded-lg transition-colors"
@@ -179,7 +200,7 @@ export const QuickAddModal: React.FC<QuickAddModalProps> = ({
               disabled={!title.trim() || !content.trim()}
               className="flex-1 bg-primary text-primary-foreground px-4 py-3 rounded-lg hover:bg-primary-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Add Prompt
+              {promptToEdit ? 'Save Changes' : 'Add Prompt'}
             </button>
           </div>
         </form>

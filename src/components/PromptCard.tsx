@@ -17,6 +17,7 @@ interface PromptCardProps {
   prompt: Prompt;
   onCopy: (prompt: Prompt) => void;
   onDelete: (id: string) => void;
+  onEdit: (prompt: Prompt) => void; // Add this line
   onDragStart: (id: string) => void;
   onDragEnd: () => void;
   onDragOver: (e: React.DragEvent) => void;
@@ -28,6 +29,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
   prompt,
   onCopy,
   onDelete,
+  onEdit, // Add this line
   onDragStart,
   onDragEnd,
   onDragOver,
@@ -105,7 +107,7 @@ export const PromptCard: React.FC<PromptCardProps> = ({
 
 
       {/* Content */}
-      <div className="pl-6">
+      <div className="pl-6" onClick={() => onEdit(prompt)}>
         <div className="flex items-start justify-between mb-3">
           <h3 className="font-semibold text-card-foreground text-lg leading-tight pr-20">
             {prompt.title}
