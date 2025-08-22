@@ -16,9 +16,9 @@
     --glass: 250 100% 99% / 0.7;
     --glass-border: 224 12% 85% / 0.3;
 
-    /* Primary - Indigo for professional feel */
-    --primary: 238 75% 65%;
-    --primary-hover: 238 75% 60%;
+    /* Primary - Vivid Indigo for professional feel */
+    --primary: 239 84% 67%;
+    --primary-hover: 239 84% 62%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary - Subtle gray */
@@ -41,7 +41,7 @@
     /* Interactive elements */
     --border: 224 12% 85%;
     --input: 224 12% 95%;
-    --ring: 238 75% 65%;
+    --ring: 239 84% 67%;
 
     /* Surfaces */
     --popover: 0 0% 100%;
@@ -56,10 +56,10 @@
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-    --shadow-glass: 0 4px 16px rgb(99 102 241 / 0.1);
+    --shadow-glass: 0 4px 16px rgb(109 40 217 / 0.1);
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(238 75% 70%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(239 84% 72%));
     --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.6));
 
     /* Transitions */
@@ -81,7 +81,7 @@
 
     --sidebar-border: 220 13% 91%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 239 84% 67%;
   }
 
   .dark {
@@ -95,9 +95,9 @@
     --glass: 224 12% 12% / 0.7;
     --glass-border: 224 12% 20% / 0.3;
 
-    /* Primary remains indigo but adjusted for dark */
-    --primary: 238 75% 65%;
-    --primary-hover: 238 75% 70%;
+    /* Primary remains vivid indigo but adjusted for dark */
+    --primary: 239 84% 67%;
+    --primary-hover: 239 84% 72%;
     --primary-foreground: 0 0% 100%;
 
     /* Dark secondary */
@@ -118,7 +118,7 @@
     /* Dark interactive elements */
     --border: 224 12% 20%;
     --input: 224 12% 16%;
-    --ring: 238 75% 65%;
+    --ring: 239 84% 67%;
 
     /* Dark surfaces */
     --popover: 224 12% 12%;
@@ -128,7 +128,7 @@
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.2);
     --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3), 0 4px 6px -4px rgb(0 0 0 / 0.3);
-    --shadow-glass: 0 4px 16px rgb(99 102 241 / 0.2);
+    --shadow-glass: 0 4px 16px rgb(109 40 217 / 0.2);
 
     /* Dark gradients */
     --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));

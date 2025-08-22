@@ -5,6 +5,7 @@ import { CategorySidebar } from './CategorySidebar';
 import { QuickAddModal } from './QuickAddModal';
 import { Toast } from './Toast';
 import { EmptyState } from './EmptyState';
+import { ThemeToggle } from './ThemeToggle';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import { useSearch } from '../hooks/useSearch';
 import { useDragAndDrop } from '../hooks/useDragAndDrop';
@@ -207,6 +208,7 @@ export const PromptVault: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
+            <ThemeToggle />
             <button
               onClick={handleExport}
               className="p-2 hover:bg-secondary rounded-lg transition-colors"
